@@ -51,6 +51,13 @@ public class Calculator extends MethodsClass {
                  else
                     printMsg("The result of division is: " + division);
                 break;
+            case "p":
+                printMsg("The result of raising " +num1+ " to the power of " +num2+ " is: "+raiseToPower(num1, num2));
+                break;
+            case "r":
+                printMsg("The root square of " +num1+ " is: "+squareRoot(num1));
+                printMsg(num2 + " was ignored for this operation because in this case is not applicable");
+                break;
         }
 
     } // this is the end of main method

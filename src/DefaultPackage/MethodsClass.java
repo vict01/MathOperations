@@ -33,7 +33,7 @@ public class MethodsClass {
 
     public static boolean isValidOp(String str) {
         int valid = 0;
-        String [] value = {"+","-","*","/"};
+        String [] value = {"+","-","*","/","p","r"};
         for (String s : value) {
             if (!s.equals(str)) {
                 valid++;
@@ -65,6 +65,19 @@ public class MethodsClass {
             System.out.println("Division by zero is not possible");
             return null;
         }
+    }
+
+    public static BigDecimal raiseToPower(BigDecimal a, BigDecimal b) {
+        double x = Double.parseDouble(String.valueOf(a));
+        double y = Double.parseDouble(String.valueOf(b));
+        double result = Math.pow(x,y);
+        return new BigDecimal(result).setScale(2,BigDecimal.ROUND_DOWN);
+    }
+
+    public static BigDecimal squareRoot(BigDecimal a) {
+        double x = Double.parseDouble(String.valueOf(a));
+        double result = Math.sqrt(x);
+        return new BigDecimal(result).setScale(2,BigDecimal.ROUND_DOWN);
     }
 
 }
