@@ -23,7 +23,7 @@ public class Calculator extends MethodsClass {
         }
         BigDecimal num2 = str2Decimal(str2);
 
-        printMsg("Enter desired Math operation: ");
+        printMsg(info);
         String operation = readValue();
 
         while (!isValidOp(operation)) {
@@ -34,32 +34,44 @@ public class Calculator extends MethodsClass {
         switch (operation) {
             case "+":
                 BigDecimal add = sum2Num(num1, num2);
-                printMsg("The result of the sum is: " + add);
+                String formattedSum = formatBigDecimal(add);
+                printMsg("The result of the sum is: " + formattedSum);
                 break;
             case "-":
                 BigDecimal rest = rest2Num(num1, num2);
-                printMsg("The result of the subtraction is: " + rest);
+                String formattedSubs = formatBigDecimal(rest);
+                printMsg("The result of the subtraction is: " + formattedSubs);
                 break;
             case "*":
-                BigDecimal mult = mult2Num(num1, num2);
-                printMsg("The result of multiplication es: " + mult);
+                BigDecimal multi = mult2Num(num1, num2);
+                String formattedMulti = formatBigDecimal(multi);
+                printMsg("The result of multiplication es: " + formattedMulti);
                 break;
+
             case "/":
                 BigDecimal division = divide2Num(num1, num2);
-                if (division==null)
+                String formattedDiv = formatBigDecimal(division);
+                if (division == null)
                     printMsg("Sorry, the result of this operation is not valid, try again from scratch");
-                 else
-                    printMsg("The result of division is: " + division);
+                else
+                    printMsg("The result of division is: " + formattedDiv);
                 break;
+
             case "p":
-                printMsg("The result of raising " +num1+ " to the power of " +num2+ " is: "+raiseToPower(num1, num2));
+                BigDecimal power = raiseToPower(num1, num2);
+                String formattedPower = formatBigDecimal(power);
+                printMsg("The result of raising " + num1 + " to the power of " + num2 + " is: " + formattedPower);
                 break;
             case "r":
-                printMsg("The root square of " +num1+ " is: "+squareRoot(num1));
-                printMsg(num2 + " was ignored for this operation because in this case is not applicable");
+                BigDecimal squareRoot = squareRoot(num1, num2);
+                String formattedSqrRoot = formatBigDecimal(squareRoot);
+                printMsg("The square root of " + num1 + " is: " + formattedSqrRoot);
+                break;
+            case "a":
+                allOperations(num1, num2);
                 break;
         }
 
-    } // this is the end of main method
+    }
 
 }
